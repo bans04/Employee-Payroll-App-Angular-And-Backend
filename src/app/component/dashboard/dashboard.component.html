@@ -1,0 +1,46 @@
+<div class="main-content">
+    <div class="header-content">
+
+        <div class="emp-detail-text">
+            Employee Details <br>
+            <div class="emp-count">{{employeeDetails.length}}</div>
+        </div>
+
+        <a class="add-button" routerLink="/addemployee">
+            <label for="" class="add-user">Add User</label> 
+        </a>
+    </div>
+
+    <div class="table-main" >
+        <table id ="display" class="table">
+            <tr>
+                <th>EmpId</th>
+                <th>profilePic</th>
+                <th>Name</th>
+                <!-- <th>profilePic</th> -->
+                <th>Gender</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Start Date</th>
+                <th>Note</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let employee of employeeDetails">
+                <td>{{employee.employeeId}}</td>
+                <td><img src="{{employee.profilePic}}" alt=""></td>
+                <td>{{employee.name}}</td>
+                <!-- <td><img src="{{employee.profilePic}}" alt=""></td> -->
+                <td>{{employee.empGender}}</td>
+                <td>{{employee.department}}</td>
+                <td>{{employee.empSalary}}</td>
+                <td>{{employee.startDate}}</td>
+                <td>{{employee.note}}</td>
+                <td class="delete-edit">
+                    <mat-icon id={{employee.employeeId}} (click)="removeEmployee(employee.employeeId)" >delete</mat-icon>
+                    <mat-icon id={{employee.employeeId}} (click)="updateEmployee(employee.employeeId)">edit</mat-icon>
+                </td>
+            </tr>
+            
+        </table>
+    </div>
+</div>
